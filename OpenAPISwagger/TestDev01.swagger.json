@@ -1,0 +1,228 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "TestDev01",
+        "version": "1.0"
+    },
+    "host": "localhost",
+    "basePath": "/api/testdev01",
+    "schemes": [
+        "https"
+    ],
+    "securityDefinitions": {
+        "apiKeyHeader": {
+            "type": "apiKey",
+            "name": "Ocp-Apim-Subscription-Key",
+            "in": "header"
+        },
+        "apiKeyQuery": {
+            "type": "apiKey",
+            "name": "subscription-key",
+            "in": "query"
+        }
+    },
+    "security": [
+        {
+            "apiKeyHeader": []
+        },
+        {
+            "apiKeyQuery": []
+        }
+    ],
+    "paths": {
+        "/values/{id}": {
+            "get": {
+                "description": "Read a value.",
+                "operationId": "read-value",
+                "summary": "Read value",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id",
+                        "required": true,
+                        "type": "string",
+                        "default": "3",
+                        "enum": [
+                            "3"
+                        ]
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Media type.",
+                        "required": true,
+                        "type": "string",
+                        "default": "application/json",
+                        "enum": [
+                            "application/json"
+                        ]
+                    }
+                ],
+                "responses": {}
+            },
+            "delete": {
+                "description": "Delete a value.",
+                "operationId": "delete-value",
+                "summary": "Delete value",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id",
+                        "required": true,
+                        "type": "string",
+                        "default": "3",
+                        "enum": [
+                            "3"
+                        ]
+                    }
+                ],
+                "responses": {}
+            },
+            "put": {
+                "description": "Update a value.",
+                "operationId": "update-value",
+                "summary": "Update value",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id",
+                        "required": true,
+                        "type": "string",
+                        "default": "3",
+                        "enum": [
+                            "3"
+                        ]
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Media type.",
+                        "required": true,
+                        "type": "string",
+                        "default": "application/json",
+                        "enum": [
+                            "application/json"
+                        ]
+                    },
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "description": "Media type.",
+                        "required": true,
+                        "type": "string",
+                        "default": "application/json",
+                        "enum": [
+                            "application/json"
+                        ]
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/Body"
+                        },
+                        "description": "{\n  \"Value\" : \"New test value\"\n}"
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "responses": {}
+            }
+        },
+        "/values": {
+            "get": {
+                "description": "Read values",
+                "operationId": "read-values",
+                "summary": "Read values",
+                "parameters": [
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Media type.",
+                        "required": true,
+                        "type": "string",
+                        "default": "application/json",
+                        "enum": [
+                            "application/json"
+                        ]
+                    }
+                ],
+                "responses": {}
+            },
+            "post": {
+                "description": "Create a value",
+                "operationId": "create-value",
+                "summary": "Create value",
+                "parameters": [
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Media type.",
+                        "required": true,
+                        "type": "string",
+                        "default": "application/json",
+                        "enum": [
+                            "application/json"
+                        ]
+                    },
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "description": "Media type.",
+                        "required": true,
+                        "type": "string",
+                        "default": "application/json",
+                        "enum": [
+                            "application/json"
+                        ]
+                    },
+                    {
+                        "name": "valuesPostRequest",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/ValuesPostRequest"
+                        },
+                        "description": "{\n  \"Value\": \"My test value\"\n}"
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "responses": {}
+            }
+        },
+        "/values/all": {
+            "get": {
+                "description": "Read all values.",
+                "operationId": "read-all-values",
+                "summary": "Read all values",
+                "parameters": [
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Media type.",
+                        "type": "string",
+                        "default": "application/json",
+                        "enum": [
+                            "application/json"
+                        ]
+                    }
+                ],
+                "responses": {}
+            }
+        }
+    },
+    "definitions": {
+        "Body": {
+            "example": "{\n  \"Value\" : \"New test value\"\n}"
+        },
+        "ValuesPostRequest": {
+            "example": "{\n  \"Value\": \"My test value\"\n}"
+        }
+    },
+    "tags": []
+}
